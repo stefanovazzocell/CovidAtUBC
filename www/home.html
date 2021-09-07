@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID@UBC</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id="header">COVID at UBC</div>
+    <div id="body">
+        <div id="welcome">
+            Tracking self-reported cases.<br>
+            Got COVID, know of someone who's sick, or got an email from a professor? <a href="/report/">Report it
+                here</a>.<br>
+            Reports are deleted after 1 week and kept anonymized.<br>
+            As a general note, this is the internet. Do not trust this data. This is more of a fun social
+            experiment, hopefully UBC releases a real dashboard.<br>
+            Remember that 1 report might not be 1 case.
+        </div>
+        <div id="reports">
+            {{range .Courses}}
+            <div class="course">
+                <div class="csummary">
+                    <div>{{.Rank}}</div>
+                    <div>{{if .IsHousing }}{{.Name}}{{else}}{{.SubjectCode}} {{.Number}}{{end}}</div>
+                    <div>{{.Reports}}</div>
+                </div>
+                <div class="cdetails">
+                    <i></i> {{.Name}}{{if .IsHousing }}{{else}} {{.Number}}{{end}} - {{.Reports}} in the
+                    last
+                    week.
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+    <div id="footer">NOT affiliated with UBC - <a href="/terms/" target="_blank">Terms</a></div>
+    <script>
+        document.querySelectorAll(".course").forEach((x) => {
+            x.onclick = (e) => { x.classList.toggle('toggle') }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+[Unit]
+Description=
+ConditionPathExists=/home/covidatubc/CovidAtUBC/CovidAtUBC
+After=network.target
+ 
+[Service]
+Type=simple
+User=covidatubc
+Group=covidatubc
+LimitNOFILE=1024
+
+Restart=on-failure
+RestartSec=10
+startLimitIntervalSec=60
+
+WorkingDirectory=/home/covidatubc/CovidAtUBC/
+ExecStart=/home/covidatubc/CovidAtUBC/CovidAtUBC -maxsummary 50 -db "redis://:{password}@127.0.0.1:6379/0"
+
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /var/log/covidatubc
+ExecStartPre=/bin/chown syslog:adm /var/log/covidatubc
+ExecStartPre=/bin/chmod 755 /var/log/covidatubc
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=covidatubc
+ 
+[Install]
+WantedBy=multi-user.target

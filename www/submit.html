@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5; url = /{{if .GoBack}}report/{{end}}" />
+    <title>COVID@UBC - Thank You</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id="header">COVID at UBC</div>
+    <div id="body">
+        <div id="welcome" {{if .Error}} class="error" {{end}}>
+            {{if .Error}}
+            {{.ErrorMsg}}
+            {{else}}
+            Thank you for your report and speedy recovery! You can now <a href="/report/">add another</a> or <a
+                href="/">view stats</a>.
+            {{end}}
+        </div>
+    </div>
+    <div id="footer">NOT affiliated with UBC - <a href="/terms/" target="_blank">Terms</a></div>
+    <script>
+        document.querySelectorAll(".course").forEach((x) => {
+            x.onclick = (e) => { x.classList.toggle('toggle') }
+        })
+    </script>
+</body>
+
+</html>

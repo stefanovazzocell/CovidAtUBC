@@ -1,0 +1,142 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+    min-width: 320px;
+    min-height: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+}
+body > div {
+    width: 100%;
+}
+
+#header {
+    font-size: 1.3em;
+    height: 65px;
+    line-height: 65px;
+    font-weight: bold;
+    background-color: #002243;
+}
+#body {
+    width: calc(100% - 30px);
+    height: calc(100vh - 95px);
+    padding: 0 15px;
+    overflow-y: auto;
+}
+#footer {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #96D5E8;
+}
+
+#welcome {
+    margin: 15px auto;
+}
+
+#reports, form {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+#reports .course {
+    height: 45px;
+    line-height: 45px;
+    background-color: #6EC4E8;
+    color: #000;
+    overflow: hidden;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+#reports .course.toggle {
+    height: 90px;
+    line-height: 90px;
+}
+#reports .course div {
+    height: 45px;
+    line-height: 45px;
+}
+.csummary {
+    display: flex;
+}
+.csummary div {
+    display: inline-block;
+}
+.csummary div:nth-child(1) {
+    width: 50px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.csummary div:nth-child(2) {
+    text-align: left;
+    flex-grow: 1;
+}
+.csummary div:nth-child(3) {
+    width: 70px;
+    font-weight: bold;
+}
+.cdetails {
+    font-size: 0.9em;
+    width: calc(100% - 20px);
+    padding: 0 10px;
+    background-color: #41B5E4;
+    display: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.course.toggle .cdetails {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+input, select {
+    flex-grow: 1;
+    margin: 0 5px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none;
+    outline:none !important;
+    padding: 0 10px;
+}
+button {
+    box-sizing: border-box;
+    padding: 0 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+button:hover, button:active {
+    font-weight: bold;
+}
+
+a {
+    color: #6EC4E8;
+    text-decoration: none;
+    font-weight: bold;
+}

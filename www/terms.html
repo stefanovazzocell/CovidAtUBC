@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID@UBC - Terms</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id="header">Report</div>
+    <div id="body">
+        <div id="welcome">
+            Note: This site is in no way affiliated with The University of British Columbia and is ran by private
+            individuals.<br>
+            <h3>Terms</h3>
+            To use this site, you must agree to these terms.<br>
+            Permission is granted to temporarily download one copy of the materials on COVID@UBC's Website for personal,
+            non-commercial transitory viewing. This is the grant of a license, not a transfer of title.<br>
+            Do not attempt to or conspire to damage and/or disable this site/service or any affiliated by means of
+            Denial of Service, XSS (Cross Site Scripting), SQL Injection, or any other mean.<br>
+            Do not attempt to or conspire to access and/or download and/or expose data stored on our website server or
+            database that you are not autorized to access.<br>
+            All the materials on COVID@UBC is provided "as is". We do not make warranties, may it be expressed or
+            implied, therefore negates all other warranties. Furthermore, we do not make any representations
+            concerning the accuracy or reliability of the use of the materials or otherwise relating to
+            such materials or any sites linked to this Website.<br>
+            COVID@UBC or its suppliers will not be hold accountable for any damages that will arise with the use or
+            inability.<br>
+            to use the materials on R3’s Website, even if this site or an authorize representative there of has been
+            notified, orally or written, of the possibility of such damage.<br>
+            These terms may be revise at any time without prior notice.<br>
+            You're only allowed to submit a report for yourself or on behalf of someone else if authorized to do so by
+            the person you're making the report for. Any claims otherwise made here or elsewhere shall be ignored and
+            considered void.<br>
+            <h3>Data Rights</h3>
+            We do not (and will never) sell, license or sub-license any of the data submitted directly or indirectly by
+            our users with any person or entity for commercial purposes.<br>
+            Any data submitted to this site will be deleted after 1 week or less and will only be displayed publicly in
+            aggregate form.<br>
+            A hashed version of your IP as well as your IP+Report will be temporarely collected for rate limiting
+            purposes. The IP+Report hash will be deleted within an hour or less while the IP data will be deleted after
+            1 day or less. This is only the case if you submit a report.<br>
+            Since we have no way to identify and link reports to individuals or entities and such reports do not
+            otherwise contain PII (Personal Identifiable Information) we cannot process deletion requests. Do keep in
+            mind however that even our anonymized data is deleted after a period of time described above.<br>
+            <h3>Others</h3>
+            We use Cloudflare to provide this service, please review their terms and <a
+                href="https://www.cloudflare.com/privacypolicy/" target="_blank">privacy policy</a>
+        </div>
+    </div>
+    <div id="footer">NOT affiliated with UBC</div>
+    <script>
+        const cs = document.getElementById("course_select");
+        function runcheck() {
+            const isres = (cs.value.substr(0, 2) == "0R");
+            document.getElementById("number_select").required = !isres;
+            document.getElementById("number_select").disabled = isres;
+            document.getElementById("section_select").disabled = isres;
+        }
+        cs.onchange = runcheck;
+        runcheck();
+    </script>
+</body>
+
+</html>

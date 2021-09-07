@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID@UBC - Report</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id="header">Report</div>
+    <div id="body">
+        <div id="welcome">
+            Please note that this site is in no way affiliated with The University of British Columbia.<br>
+            Reports are deleted after 1 week and kept anonymized.<br>
+            If you're sick please stay home.<br>
+            Only send a report for yourself or on behalf of a friend.<br>
+            Changed your mind? you can return to the <a href="/">stats page</a>.<br>
+            You can only make a report while connected to UBC Secure or other UBC networks.
+        </div>
+        <form action="/submit/" method="post">
+            <div>Which course did you take part on while sick?</div>
+            <div>
+                <select name="course" id="course_select" required>
+                    {{range $key, $value := .}}
+                    <option value="{{$key}}">{{$key}} - {{$value}}</option>
+                    {{end}}
+                </select>
+            </div>
+            <div>
+                <input type="text" name="number" id="number_select" pattern="^[1-5][0-9]{2}$" placeholder="Number (210)"
+                    required>
+                <input type="text" name="section" id="section_select" pattern="^[L0-9][0-9][0-9A-Z]$"
+                    placeholder="Section (101, optional)">
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div id="footer">NOT affiliated with UBC - <a href="/terms/" target="_blank">Terms</a></div>
+    <script>
+        const cs = document.getElementById("course_select");
+        function runcheck() {
+            const isres = (cs.value.substr(0, 2) == "0R");
+            document.getElementById("number_select").required = !isres;
+            document.getElementById("number_select").disabled = isres;
+            document.getElementById("section_select").disabled = isres;
+        }
+        cs.onchange = runcheck;
+        runcheck();
+    </script>
+</body>
+
+</html>
